@@ -1,153 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1> Hello World </h1>
-    <h2> Hello World Part 2 🙂 </h2>
-    <h4> .................................. </h4>
-    <h3>.......................................</h3>
-    <!DOCTYPE html>
-<html lang="en">
+#include <stdio.h>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
+int main() {
+    int no_f, no_p;
 
-<body class="bg-white">
+    printf("Enter number of frames: ");
+    scanf("%d", &no_f);
 
-    <!-- Header Section -->
-    <header class="fixed top-0 w-full bg-white shadow-md z-50">
-        <nav class="h-[50px] flex items-center px-6 bg-gray-100 shadow-md">
-            <ul class="flex gap-10 list-none">
-                <li><a href="#" class="hover:text-blue-500">Home</a></li>
-                <li><a href="#about" class="hover:text-blue-500">About</a></li>
-                <li><a href="#" class="hover:text-blue-500">Projects</a></li>
-                <li><a href="#" class="hover:text-blue-500">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    printf("Enter number of pages: ");
+    scanf("%d", &no_p);
 
-    <!-- Main Section -->
-    <main>
-        <div class="px-20 mt-15">
-            <img src="mypic.jpg" class="h-[200px] w-[400px]">
-            <p class="text-blue-900 font-medium">This is Me Md. Saif Al Islam</p>
-        </div>
+    int frame[no_f], page[no_p];
+    int hit = 0, fault = 0;
+    int index = 0; 
 
-       <section id="about">  
-        <div class="px-5 mt-5">
-            <h1 class="text-purple-600 font-bold text-center text-[25px]">About Me</h1>
-            <p class="text-black-100 text-justify">I am a passionate learner and aspiring web developer
-                 with a strong interest in modern web technologies. I enjoy building clean, responsive, and user-friendly interfaces, and I’m 
-                 always eager to improve my skills by 
-                 learning and practicing new concepts.</p>
-        </div>
-      
+    for (int i = 0; i < no_f; i++) {
+        frame[i] = -1;
+    }
 
-        <div class="px-5 mt-5">
-            <h1 class="text-purple-600 font-bold text-center text-[25px]">Projects</h1>
-            <div class="max-w-sm bg-white rounded-2xl shadow-lg hover:shadow-2xl transition duration-300 overflow-hidden">
-    
-    <!-- Project Image -->
-    <img 
-        src="project-1.png" 
-        alt="Project Image"
-        class="w-full h-48 object-cover"
-    >
+    printf("Enter page reference string:\n");
+    for (int i = 0; i < no_p; i++) {
+        scanf("%d", &page[i]);
+    }
 
-    <!-- Card Content -->
-    <div class="p-6">
-        <h3 class="text-xl font-semibold text-gray-800">
-            Number Guessing Game
-        </h3>
+    for (int i = 0; i < no_p; i++) {
+        int found = 0;
 
-        <p class="text-gray-600 text-sm mt-2">
-           A simple number guessing game where users try to guess a randomly generated number.
-        </p>
+        for (int j = 0; j < no_f; j++) {
+            if (frame[j] == page[i]) {
+                hit++;
+                found = 1;
+                break;
+            }
+        }
 
-        <!-- Tech Stack -->
-        <div class="flex flex-wrap gap-2 mt-4">
-            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">HTML</span>
-            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">CSS</span>
-            <span class="px-3 py-1 text-xs bg-gray-100 rounded-full">JavaScript</span>
-        </div>
+        if (!found) {
+            frame[index] = page[i];
+            index = (index + 1) % no_f;
+            fault++;
+        }
+    }
 
-        <!-- Buttons -->
-        <div class="flex gap-3 mt-5">
-            <a href="https://ofear3.github.io/js-console-programs/program3.html" target="_blank" class="flex-1 text-center bg-blue-600 text-white py-2 rounded-lg text-sm hover:bg-blue-700 transition">
-                Live Demo
-            </a>
-            <a href="#" class="flex-1 text-center border border-gray-300 py-2 rounded-lg text-sm hover:bg-gray-100 transition">
-                Code
-            </a>
-        </div>
-    </div>
-</div>
+    printf("\nTotal Hits = %d\n", hit);
+    printf("Total Page Faults = %d\n", fault);
 
-        </div>
-         </section> 
-    </main>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>prectices tailwind</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body class="bg-white">
-<header class="bg-blue-950">
-  <nav class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-    
-    <!-- Logo -->
-    <h1 class="text-white text-xl font-bold cursor-pointer">
-      MyLogo
-    </h1>
-
-    <!-- Mobile Menu Button -->
-<button class="md:hidden text-white text-2xl cursor-pointer">
-  ☰
-</button>
-
-    <!-- Menu -->
-    <ul class="hidden md:flex space-x-8 text-white ">
-      <li class="hover:text-blue-300 cursor-pointer">Home</li>
-      <li class="hover:text-blue-300 cursor-pointer">About</li>
-      <li class="hover:text-blue-300 cursor-pointer">Photos</li>
-      <li class="hover:text-blue-300 cursor-pointer">Contact</li>
-    </ul>
-
-  </nav>
-
-
-    <!-- Menu -->
-    <ul class="hidden md:flex space-x-8 text-white ">
-      <li class="hover:text-blue-300 cursor-pointer">Home</li>
-      <li class="hover:text-blue-300 cursor-pointer">About</li>
-      <li class="hover:text-blue-300 cursor-pointer">Photos</li>
-      <li class="hover:text-blue-300 cursor-pointer">Contact</li>
-    </ul>
-
-</header>
-
-      <h1>Hello world</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam commodi dignissimos vero. In dolore voluptate, magnam earum placeat amet officiis esse distinctio vitae veritatis ipsa unde ullam, pariatur iste quaerat.</p>  
-
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad aliquid vitae placeat inventore soluta voluptatibus unde ex, enim earum sed tempora, dolorum sapiente labore, officiis perspiciatis nihil obcaecati quis ipsum.</p>
-  <P>Hello!Iam otishi islam puspi</P>
-  <p>&copy; Reserved by Puspi</p>
-
-</body>
-</html>
-</body>
-
-</html>
-</body>
-</html>
+    return 0;
+}
